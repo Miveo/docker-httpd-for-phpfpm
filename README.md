@@ -23,7 +23,7 @@ You can override this values using environment variables
                 - ../:/var/www/symfony
             ports:
                 - 8080:80
-            # if your php container have a different host/port than default value
+            # if your php container have a different host/port than default value, eg:
             # environment:
             #     - PHP_HOST=php_fpm
             #     - PHP_PORT=9001
@@ -34,6 +34,5 @@ You can override this values using environment variables
             volumes_from:
                 - apache
             volumes:
+                # volume with project specific php.ini configuration
                 - ./php/99-test-project.ini:/etc/php.d/99-test-project.ini
-            env_file:
-                - docker-compose.env
